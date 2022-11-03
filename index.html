@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css' integrity='sha512-HHsOC+h3najWR7OKiGZtfhFIEzg5VRIPde0kB0bG2QRidTQqf+sbfcxCTB16AcFB93xMjnBIKE29/MjdzXE+qw==' crossorigin='anonymous'/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Slider Vue</title>
+</head>
+<body>
+
+
+  <div id="app">
+
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="slider">
+          <img :src="movies[imgCounter].img" alt="movies[imgCounter].name">
+        </div>
+        <div class="thumbnail-container">
+          <div v-for="(movie, index) in movies" class="thumbnail">
+            <img :class="{'active': index === imgCounter}" :src="movie.img" alt="movie.name">
+          </div>
+        </div>
+        <div class="next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <div class="prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+      </div>
+      <div class="info-box">
+        <h3 class="title">{{movies[imgCounter].name}}</h3>
+        <p class="movie-length">Running time: {{movies[imgCounter].time}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
