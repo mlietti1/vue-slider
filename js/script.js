@@ -31,7 +31,23 @@ createApp ({
           img: 'img/totoro.jpg'
         }
       ],
-      imgCounter: 0
+
+      imgCounter: 0,
+    }
+  },
+
+  methods: {
+    nextPrev(isNext){
+      isNext ? this.imgCounter++ : this.imgCounter--;
+
+      if(this.imgCounter === this.movies.length){
+        this.imgCounter = 0;
+      }
+      if(this.imgCounter < 0){
+        this.imgCounter = this.movies.length - 1;
+      }
     }
   }
+
+  
 }).mount('#app')

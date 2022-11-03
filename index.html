@@ -26,10 +26,10 @@
             <img :class="{'active': index === imgCounter}" :src="movie.img" alt="movie.name">
           </div>
         </div>
-        <div class="next">
+        <div @click="nextPrev(true)" class="next">
           <i class="fa-solid fa-chevron-right"></i>
         </div>
-        <div class="prev">
+        <div @click="nextPrev(false)" class="prev">
           <i class="fa-solid fa-chevron-left"></i>
         </div>
       </div>
