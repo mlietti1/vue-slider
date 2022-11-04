@@ -46,7 +46,19 @@ createApp ({
       if(this.imgCounter < 0){
         this.imgCounter = this.movies.length - 1;
       }
+    },
+    startAutoscroll(){
+      this.autoscroll = setInterval (() =>{
+        this.nextPrev(true);
+      }, 2000)
+    },
+    stopAutoscroll(){
+      clearInterval(this.autoscroll)
     }
+  },
+
+  mounted(){
+    this.startAutoscroll();
   }
 
   

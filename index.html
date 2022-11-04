@@ -17,13 +17,13 @@
   <div id="app">
 
     <div class="main-wrapper">
-      <div class="container">
+      <div @mouseenter="stopAutoscroll" @mouseleave="startAutoscroll" class="container">
         <div class="slider">
-          <img :src="movies[imgCounter].img" alt="movies[imgCounter].name">
+          <img :src="movies[imgCounter].img" :alt="movies[imgCounter].name">
         </div>
         <div class="thumbnail-container">
           <div v-for="(movie, index) in movies" class="thumbnail">
-            <img :class="{'active': index === imgCounter}" :src="movie.img" alt="movie.name">
+            <img @click="imgCounter = index" :class="{'active': index === imgCounter}" :src="movie.img" :alt="movie.name">
           </div>
         </div>
         <div @click="nextPrev(true)" class="next">
